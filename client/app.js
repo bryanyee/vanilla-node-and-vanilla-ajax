@@ -6,6 +6,11 @@ let messageIndex = 0;
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const data = {
+    name: form.children.name.value, 
+    message: form.children.message.value
+  };
+
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:3000/messages');
   xhr.onreadystatechange = function() {
@@ -17,7 +22,7 @@ form.addEventListener('submit', (e) => {
       }
     }
   }
-  xhr.send(JSON.stringify({ name: form.children.name.value, message: form.children.message.value }));
+  xhr.send(JSON.stringify(data));
 });
 
 getMessagesButton.addEventListener('click', (e) => {

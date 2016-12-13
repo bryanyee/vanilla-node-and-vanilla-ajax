@@ -106,7 +106,8 @@ const server = http.createServer((req, res) => {
   }
 
   else {
-    res.end(404);
+    res.statusCode = 404;
+    res.end();
   }
 });
 
